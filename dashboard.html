@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard | Security Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+
+        <div class="grid"></div>
+
+    </div>
+
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🛡️
+            </div>
+
+            <span>
+                Phish<span>Guard</span>
+            </span>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Scanner
+            </a>
+
+            <a href="dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="index.html#extension">
+                Extension
+            </a>
+
+        </div>
+
+
+        <button
+            class="nav-btn"
+            onclick="location.href='index.html'"
+        >
+            Scan URL
+        </button>
+
+    </nav>
+
+
+
+    <!-- DASHBOARD -->
+
+    <main class="dashboard">
+
+
+        <!-- HEADER -->
+
+        <section class="dashboard-header">
+
+            <div>
+
+                <div class="badge">
+
+                    <span class="pulse"></span>
+
+                    SECURITY CENTER
+
+                </div>
+
+
+                <h1>
+                    Security
+                    <span>Overview</span>
+                </h1>
+
+
+                <p>
+                    Monitor URL scans and identify suspicious
+                    activity in real time.
+                </p>
+
+            </div>
+
+
+            <div class="protection-status">
+
+                <span class="status-dot"></span>
+
+                Protection Active
+
+            </div>
+
+        </section>
+
+
+
+        <!-- STAT CARDS -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-top">
+
+                    <span>
+                        TOTAL SCANS
+                    </span>
+
+                    <div class="stat-icon">
+                        🔍
+                    </div>
+
+                </div>
+
+
+                <strong id="totalScans">
+                    1,284
+                </strong>
+
+
+                <p>
+                    +12.5% this week
+                </p>
+
+            </div>
+
+
+
+            <div class="stat-card safe-card">
+
+                <div class="stat-top">
+
+                    <span>
+                        SAFE URLS
+                    </span>
+
+                    <div class="stat-icon">
+                        ✓
+                    </div>
+
+                </div>
+
+
+                <strong id="safeScans">
+                    921
+                </strong>
+
+
+                <p>
+                    No major threats
+                </p>
+
+            </div>
+
+
+
+            <div class="stat-card warning-card">
+
+                <div class="stat-top">
+
+                    <span>
+                        SUSPICIOUS
+                    </span>
+
+                    <div class="stat-icon">
+                        ⚠️
+                    </div>
+
+                </div>
+
+
+                <strong id="suspiciousScans">
+                    217
+                </strong>
+
+
+                <p>
+                    Needs attention
+                </p>
+
+            </div>
+
+
+
+            <div class="stat-card danger-card">
+
+                <div class="stat-top">
+
+                    <span>
+                        PHISHING
+                    </span>
+
+                    <div class="stat-icon">
+                        🚨
+                    </div>
+
+                </div>
+
+
+                <strong id="phishingScans">
+                    146
+                </strong>
+
+
+                <p>
+                    Threats detected
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ANALYTICS -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- THREAT ACTIVITY -->
+
+            <div class="dashboard-card chart-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="card-label">
+                            ANALYTICS
+                        </span>
+
+                        <h2>
+                            Threat Activity
+                        </h2>
+
+                    </div>
+
+
+                    <select id="chartPeriod">
+
+                        <option>
+                            Last 7 Days
+                        </option>
+
+                        <option>
+                            Last 30 Days
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="chart">
+
+                    <div class="chart-lines">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="bars">
+
+                        <div style="height:35%"></div>
+
+                        <div style="height:55%"></div>
+
+                        <div style="height:42%"></div>
+
+                        <div style="height:75%"></div>
+
+                        <div style="height:60%"></div>
+
+                        <div style="height:90%"></div>
+
+                        <div style="height:68%"></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-days">
+
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span>Sun</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SECURITY SCORE -->
+
+            <div class="dashboard-card security-card">
+
+                <span class="card-label">
+                    SECURITY HEALTH
+                </span>
+
+                <h2>
+                    Protection Score
+                </h2>
+
+
+                <div class="health-circle">
+
+                    <div>
+
+                        <strong>
+                            92
+                        </strong>
+
+                        <span>
+                            /100
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="health-status">
+
+                    <span class="status-dot"></span>
+
+                    Excellent protection
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- RECENT SCANS -->
+
+        <section class="dashboard-card recent-card">
+
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="card-label">
+                        ACTIVITY
+                    </span>
+
+                    <h2>
+                        Recent Scans
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="view-all"
+                    onclick="location.href='index.html'"
+                >
+                    + New Scan
+                </button>
+
+            </div>
+
+
+
+            <div class="scan-list">
+
+
+                <div class="scan-row">
+
+                    <div class="scan-info">
+
+                        <div class="scan-icon safe">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                https://mp-frames.vercel.app/
+                            </strong>
+
+                            <small>
+                                Just now
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="scan-score safe-text">
+                        0 / 100
+                    </span>
+
+
+                    <span class="scan-status safe-badge">
+                        Safe
+                    </span>
+
+                </div>
+
+
+
+                <div class="scan-row">
+
+                    <div class="scan-info">
+
+                        <div class="scan-icon warning">
+                            ⚠
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                example-login-site.com
+                            </strong>
+
+                            <small>
+                                12 minutes ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="scan-score warning-text">
+                        56 / 100
+                    </span>
+
+
+                    <span class="scan-status warning-badge">
+                        Suspicious
+                    </span>
+
+                </div>
+
+
+
+                <div class="scan-row">
+
+                    <div class="scan-info">
+
+                        <div class="scan-icon danger">
+                            !
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                suspicious-domain.test
+                            </strong>
+
+                            <small>
+                                25 minutes ago
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="scan-score danger-text">
+                        87 / 100
+                    </span>
+
+
+                    <span class="scan-status danger-badge">
+                        Phishing
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="logo">
+            🛡️ PhishGuard
+        </div>
+
+        <p>
+            Smart protection against phishing threats.
+        </p>
+
+    </footer>
+
+
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
