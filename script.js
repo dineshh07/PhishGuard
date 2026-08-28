@@ -797,27 +797,17 @@ function openScreenshotScanner() {
 
 function analyzeScreenshot(event) {
 
-    const file =
-        event.target.files[0];
+    const file = event.target.files[0];
 
     if (!file) return;
 
-
     const preview =
-        document.getElementById(
-            "screenshotPreview"
-        );
-
+        document.getElementById("screenshotPreview");
 
     const result =
-        document.getElementById(
-            "screenshotResult"
-        );
+        document.getElementById("screenshotResult");
 
-
-    const reader =
-        new FileReader();
-
+    const reader = new FileReader();
 
     reader.onload = function(e) {
 
@@ -825,22 +815,14 @@ function analyzeScreenshot(event) {
 
         preview.style.display = "block";
 
-
-        result.style.display = "block";
-
         result.innerHTML = `
-            <strong>Screenshot Loaded ✓</strong>
-            <br>
-            <small>
-                Image is ready for security analysis.
-            </small>
+            <h3>Screenshot Loaded ✓</h3>
+            <p>Image is ready for security analysis.</p>
         `;
 
     };
 
-
     reader.readAsDataURL(file);
-
 }
 
 
