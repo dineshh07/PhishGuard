@@ -1312,3 +1312,84 @@ function escapeHTML(value) {
         .replaceAll("'", "&#039;");
 
 }
+// =========================================
+// SCREENSHOT SCANNER
+// =========================================
+
+function openScreenshotScanner() {
+
+    const modal =
+        document.getElementById("screenshotModal");
+
+    if (!modal) {
+        console.error("Screenshot modal not found");
+        return;
+    }
+
+    modal.style.display = "flex";
+
+}
+
+
+function openQRScanner() {
+
+    const modal =
+        document.getElementById("qrModal");
+
+    if (!modal) {
+        console.error("QR modal not found");
+        return;
+    }
+
+    modal.style.display = "flex";
+
+}
+
+
+function closeTools() {
+
+    const screenshotModal =
+        document.getElementById("screenshotModal");
+
+    const qrModal =
+        document.getElementById("qrModal");
+
+
+    if (screenshotModal) {
+        screenshotModal.style.display = "none";
+    }
+
+    if (qrModal) {
+        qrModal.style.display = "none";
+    }
+
+}
+
+
+// Close when clicking outside modal
+
+document.addEventListener("click", function(event) {
+
+    const screenshotModal =
+        document.getElementById("screenshotModal");
+
+    const qrModal =
+        document.getElementById("qrModal");
+
+
+    if (
+        screenshotModal &&
+        event.target === screenshotModal
+    ) {
+        screenshotModal.style.display = "none";
+    }
+
+
+    if (
+        qrModal &&
+        event.target === qrModal
+    ) {
+        qrModal.style.display = "none";
+    }
+
+});
