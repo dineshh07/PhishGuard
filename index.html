@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        PhishGuard | Smart Web Protection
+    </title>
+
+
+    <!-- CSS -->
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ANIMATED BACKGROUND
+===================================================== -->
+
+<div class="background">
+
+    <div class="glow glow-1"></div>
+
+    <div class="glow glow-2"></div>
+
+    <div class="grid"></div>
+
+</div>
+
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🛡️
+        </div>
+
+        <span>
+            Phish<span>Guard</span>
+        </span>
+
+    </div>
+
+
+
+    <!-- NAV LINKS -->
+
+    <div class="nav-links">
+
+        <a href="#scanner">
+            Scanner
+        </a>
+
+        <a href="#features">
+            Features
+        </a>
+
+        <a href="#extension">
+            Extension
+        </a>
+
+    </div>
+
+
+
+    <!-- NAV BUTTON -->
+
+    <button
+        class="nav-btn"
+        onclick="scrollToScanner()"
+    >
+
+        Scan URL
+
+    </button>
+
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero">
+
+
+    <!-- =================================================
+         HERO CONTENT
+    ================================================== -->
+
+    <div class="hero-content">
+
+
+        <!-- BADGE -->
+
+        <div class="badge">
+
+            <span class="pulse"></span>
+
+            REAL-TIME WEB PROTECTION
+
+        </div>
+
+
+
+        <!-- HEADING -->
+
+        <h1>
+
+            Detect threats.
+
+            <br>
+
+            <span>
+                Browse safely.
+            </span>
+
+        </h1>
+
+
+
+        <!-- DESCRIPTION -->
+
+        <p>
+
+            Analyze suspicious URLs instantly and
+            protect yourself from phishing attacks
+            before you click.
+
+        </p>
+
+
+
+        <!-- =================================================
+             SCANNER
+        ================================================== -->
+
+        <div
+            class="scanner-box"
+            id="scanner"
+        >
+
+
+            <!-- URL ROW -->
+
+            <div class="url-row">
+
+
+                <!-- INPUT -->
+
+                <div class="input-wrapper">
+
+                    <span class="link-icon">
+                        🔗
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="urlInput"
+                        placeholder="Paste a suspicious URL..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <!-- SCAN BUTTON -->
+
+                <button
+                    class="scan-btn"
+                    onclick="scanURL()"
+                >
+
+                    <span>
+                        Scan URL
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SCANNER OPTIONS
+            ================================================== -->
+
+            <div class="scanner-options">
+
+
+                <!-- =============================================
+                     URL ANALYSIS
+                ============================================== -->
+
+                <div
+                    class="scanner-option"
+                    onclick="focusURLInput()"
+                >
+
+                    <div class="scanner-option-icon">
+
+                        🔗
+
+                    </div>
+
+
+                    <h3>
+                        URL Analysis
+                    </h3>
+
+
+                    <p>
+
+                        Analyze website links
+                        for phishing risks.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     SCREENSHOT ANALYSIS
+                ============================================== -->
+
+                <div
+                    class="scanner-option"
+                    onclick="openScreenshotScanner()"
+                >
+
+                    <div class="scanner-option-icon">
+
+                        📷
+
+                    </div>
+
+
+                    <h3>
+                        Screenshot Analysis
+                    </h3>
+
+
+                    <p>
+
+                        Upload a website screenshot
+                        and analyze it.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     QR DETECTION
+                ============================================== -->
+
+                <div
+                    class="scanner-option"
+                    onclick="openQRScanner()"
+                >
+
+                    <div class="scanner-option-icon">
+
+                        ▣
+
+                    </div>
+
+
+                    <h3>
+                        QR Detection
+                    </h3>
+
+
+                    <p>
+
+                        Detect phishing links
+                        hidden inside QR codes.
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- SECURITY NOTE -->
+
+        <div class="scanner-note">
+
+            🔒 Your URL is analyzed securely
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =================================================
+         SECURITY VISUAL
+    ================================================== -->
+
+    <div class="security-visual">
+
+
+        <div class="orbit orbit-1"></div>
+
+        <div class="orbit orbit-2"></div>
+
+
+        <!-- SHIELD -->
+
+        <div class="shield-container">
+
+            <div class="shield-glow"></div>
+
+            <div class="shield">
+                🛡️
+            </div>
+
+            <div class="scan-line"></div>
+
+        </div>
+
+
+
+        <!-- FLOATING CARD -->
+
+        <div class="floating-card card-1">
+
+            <span>
+                ✓
+            </span>
+
+            <div>
+
+                <strong>
+                    URL Verified
+                </strong>
+
+                <small>
+                    Security check passed
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FLOATING CARD -->
+
+        <div class="floating-card card-2">
+
+            <span>
+                ⚡
+            </span>
+
+            <div>
+
+                <strong>
+                    Real-Time Scan
+                </strong>
+
+                <small>
+                    Protection active
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     TRUST BAR
+===================================================== -->
+
+<section class="trust">
+
+
+    <p>
+        PROTECTING YOUR DIGITAL JOURNEY
+    </p>
+
+
+    <div class="trust-items">
+
+
+        <span>
+            🔐 Secure Analysis
+        </span>
+
+
+        <span>
+            ⚡ Instant Detection
+        </span>
+
+
+        <span>
+            🛡️ Threat Protection
+        </span>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FEATURES
+===================================================== -->
+
+<section
+    class="features"
+    id="features"
+>
+
+
+    <!-- TITLE -->
+
+    <div class="section-title">
+
+
+        <div class="badge">
+
+            SECURITY ENGINE
+
+        </div>
+
+
+        <h2>
+
+            Protection that works
+
+            <span>
+                before you click.
+            </span>
+
+        </h2>
+
+
+    </div>
+
+
+
+    <!-- FEATURE GRID -->
+
+    <div class="feature-grid">
+
+
+        <!-- FEATURE 1 -->
+
+        <div class="feature-card">
+
+
+            <div class="feature-icon">
+                🔍
+            </div>
+
+
+            <h3>
+                URL Analysis
+            </h3>
+
+
+            <p>
+
+                Analyze URL structure and
+                identify suspicious patterns.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FEATURE 2 -->
+
+        <div class="feature-card">
+
+
+            <div class="feature-icon">
+                ⚠️
+            </div>
+
+
+            <h3>
+                Risk Detection
+            </h3>
+
+
+            <p>
+
+                Calculate a risk score and identify
+                potentially dangerous URLs.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FEATURE 3 -->
+
+        <div class="feature-card">
+
+
+            <div class="feature-icon">
+                📷
+            </div>
+
+
+            <h3>
+                Screenshot Detection
+            </h3>
+
+
+            <p>
+
+                Analyze suspicious website
+                screenshots and visual indicators.
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- FEATURE 4 -->
+
+        <div class="feature-card">
+
+
+            <div class="feature-icon">
+                ▣
+            </div>
+
+
+            <h3>
+                QR Detection
+            </h3>
+
+
+            <p>
+
+                Detect suspicious links hidden
+                inside QR codes.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     BROWSER EXTENSION
+===================================================== -->
+
+<section
+    class="extension"
+    id="extension"
+>
+
+
+    <!-- TEXT -->
+
+    <div class="extension-text">
+
+
+        <div class="badge">
+
+            BROWSER EXTENSION
+
+        </div>
+
+
+        <h2>
+
+            Security that follows
+
+            <span>
+                you everywhere.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            PhishGuard analyzes the website you're
+            currently visiting and warns you when
+            suspicious activity is detected.
+
+        </p>
+
+
+        <button
+            class="extension-btn"
+        >
+
+            🧩 Get Extension
+
+        </button>
+
+
+    </div>
+
+
+
+    <!-- EXTENSION PREVIEW -->
+
+    <div class="extension-preview">
+
+
+        <div class="browser-top">
+
+            <span>●</span>
+
+            <span>●</span>
+
+            <span>●</span>
+
+        </div>
+
+
+        <div class="extension-content">
+
+
+            <div class="extension-logo">
+
+                🛡️
+
+            </div>
+
+
+            <h3>
+
+                PhishGuard
+
+            </h3>
+
+
+
+            <div class="safe-status">
+
+
+                <div class="status-circle">
+
+                    ✓
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Website Safe
+                    </strong>
+
+
+                    <small>
+                        No threats detected
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="risk">
+
+                <span>
+                    Risk Score
+                </span>
+
+
+                <strong>
+                    04 / 100
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+
+    <div class="logo">
+
+        🛡️ PhishGuard
+
+    </div>
+
+
+    <p>
+
+        Smart protection against phishing threats.
+
+    </p>
+
+
+</footer>
+
+
+
+<!-- =====================================================
+     URL RESULT MODAL
+===================================================== -->
+
+<div
+    class="modal"
+    id="resultModal"
+>
+
+
+    <div class="modal-box">
+
+
+        <!-- CLOSE -->
+
+        <button
+            class="close"
+            onclick="closeModal()"
+        >
+
+            ×
+
+        </button>
+
+
+
+        <!-- =================================================
+             SCANNING
+        ================================================== -->
+
+        <div
+            class="scanning"
+            id="scanning"
+        >
+
+
+            <div class="loader"></div>
+
+
+            <h2>
+                Analyzing URL
+            </h2>
+
+
+            <p id="scanText">
+
+                Checking URL structure...
+
+            </p>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESULT
+        ================================================== -->
+
+        <div
+            class="result"
+            id="result"
+        >
+
+
+            <!-- HEADER -->
+
+            <div class="result-header">
+
+                <span class="result-label">
+
+                    URL SECURITY ANALYSIS
+
+                </span>
+
+            </div>
+
+
+
+            <!-- RISK CIRCLE -->
+
+            <div
+                class="risk-circle"
+                id="riskCircle"
+            >
+
+
+                <div class="risk-inner">
+
+
+                    <strong id="riskScore">
+
+                        0
+
+                    </strong>
+
+
+                    <span>
+                        / 100
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- STATUS -->
+
+            <div
+                class="security-status"
+                id="securityStatus"
+            >
+
+                ✓ URL Appears Safe
+
+            </div>
+
+
+
+            <!-- URL -->
+
+            <p
+                class="result-url"
+                id="resultURL"
+            >
+
+                https://example.com
+
+            </p>
+
+
+
+            <!-- =================================================
+                 SECURITY CHECKS
+            ================================================== -->
+
+            <div
+                class="checks"
+                id="checks"
+            >
+
+
+                <!-- HTTPS -->
+
+                <div class="check-item">
+
+
+                    <span>
+                        ✓
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            HTTPS
+                        </strong>
+
+
+                        <small>
+                            Secure connection
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- URL STRUCTURE -->
+
+                <div class="check-item">
+
+
+                    <span>
+                        ✓
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            URL Structure
+                        </strong>
+
+
+                        <small>
+                            Normal URL structure
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- SUSPICIOUS PATTERNS -->
+
+                <div class="check-item">
+
+
+                    <span>
+                        ✓
+                    </span>
+
+
+                    <div>
+
+                        <strong>
+                            Suspicious Patterns
+                        </strong>
+
+
+                        <small>
+                            No major indicators
+                        </small>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RECOMMENDATION
+            ================================================== -->
+
+            <div class="recommendation">
+
+
+                <span>
+                    🛡️
+                </span>
+
+
+                <div>
+
+
+                    <strong>
+                        Security Recommendation
+                    </strong>
+
+
+                    <p id="recommendationText">
+
+                        This URL appears safe based
+                        on the current analysis.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DONE -->
+
+            <button
+                class="done-btn"
+                onclick="closeModal()"
+            >
+
+                Scan Another URL
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     SCREENSHOT SCANNER MODAL
+===================================================== -->
+
+<div
+    class="tool-modal"
+    id="screenshotModal"
+>
+
+
+    <div class="tool-box">
+
+
+        <button
+            class="tool-close"
+            onclick="closeTools()"
+        >
+
+            ×
+
+        </button>
+
+
+
+        <div class="tool-icon">
+
+            📷
+
+        </div>
+
+
+
+        <h2>
+            Screenshot Analysis
+        </h2>
+
+
+
+        <p>
+
+            Upload a website screenshot to
+            inspect suspicious visual indicators.
+
+        </p>
+
+
+
+        <!-- UPLOAD -->
+
+        <label class="upload-box">
+
+
+            <span>
+                📁
+            </span>
+
+
+            <strong>
+                Choose Screenshot
+            </strong>
+
+
+            <small>
+                PNG, JPG or WEBP
+            </small>
+
+
+            <input
+                type="file"
+                id="screenshotInput"
+                accept="image/*"
+                onchange="analyzeScreenshot(event)"
+            >
+
+
+        </label>
+
+
+
+        <!-- PREVIEW -->
+
+        <img
+            id="screenshotPreview"
+            class="preview-image"
+            alt="Screenshot Preview"
+        >
+
+
+
+        <!-- RESULT -->
+
+        <div
+            class="tool-result"
+            id="screenshotResult"
+        ></div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     QR SCANNER MODAL
+===================================================== -->
+
+<div
+    class="tool-modal"
+    id="qrModal"
+>
+
+
+    <div class="tool-box">
+
+
+        <button
+            class="tool-close"
+            onclick="closeTools()"
+        >
+
+            ×
+
+        </button>
+
+
+
+        <div class="tool-icon">
+
+            ▣
+
+        </div>
+
+
+
+        <h2>
+            QR Detection
+        </h2>
+
+
+
+        <p>
+
+            Upload a QR code image to detect
+            the URL hidden inside it.
+
+        </p>
+
+
+
+        <!-- UPLOAD -->
+
+        <label class="upload-box">
+
+
+            <span>
+                📱
+            </span>
+
+
+            <strong>
+                Choose QR Image
+            </strong>
+
+
+            <small>
+                PNG, JPG or WEBP
+            </small>
+
+
+            <input
+                type="file"
+                id="qrInput"
+                accept="image/*"
+                onchange="scanQR(event)"
+            >
+
+
+        </label>
+
+
+
+        <!-- QR CANVAS -->
+
+        <canvas
+            id="qrCanvas"
+            style="display:none;"
+        ></canvas>
+
+
+
+        <!-- RESULT -->
+
+        <div
+            class="tool-result"
+            id="qrResult"
+        ></div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     QR LIBRARY
+===================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js">
+</script>
+
+
+
+<!-- =====================================================
+     MAIN JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+
+<!-- =====================================================
+     SMALL UI HELPER
+===================================================== -->
+
+<script>
+
+function focusURLInput() {
+
+    const input =
+        document.getElementById("urlInput");
+
+    if (!input) return;
+
+    input.focus();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
