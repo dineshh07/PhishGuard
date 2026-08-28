@@ -1342,7 +1342,50 @@ function focusURLInput() {
 
 </script>
 
+<script>
+    
+function openScreenshotScanner() {
 
+    const modal = document.getElementById("screenshotModal");
+
+    if (modal) {
+        modal.style.display = "flex";
+    }
+
+}
+
+
+function openQRScanner() {
+
+    const modal = document.getElementById("qrModal");
+
+    if (modal) {
+        modal.style.display = "flex";
+    }
+
+}
+
+
+function closeTools() {
+
+    const screenshotModal =
+        document.getElementById("screenshotModal");
+
+    const qrModal =
+        document.getElementById("qrModal");
+
+
+    if (screenshotModal) {
+        screenshotModal.style.display = "none";
+    }
+
+    if (qrModal) {
+        qrModal.style.display = "none";
+    }
+
+}
+
+</script>
 </body>
 
 </html>
