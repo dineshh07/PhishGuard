@@ -785,17 +785,7 @@ document.addEventListener(
    SCREENSHOT ANALYSIS
 ===================================================== */
 
-function openScreenshotScanner() {
-
-    const modal =
-        document.getElementById("screenshotModal");
-
-    modal.style.display = "flex";
-
-}
-
-
-function analyzeScreenshot(event) {
+async function analyzeScreenshot(event) {
 
     const file = event.target.files[0];
 
@@ -807,26 +797,299 @@ function analyzeScreenshot(event) {
     const result =
         document.getElementById("screenshotResult");
 
-    const reader = new FileReader();
 
-    reader.onload = function(e) {
+    // Show image
+    const imageURL =
+        URL.createObjectURL(file);
 
-        preview.src = e.target.result;
+    preview.src = imageURL;
 
-        preview.style.display = "block";
+    preview.style.display = "block";
 
+
+    // Loading message
+    result.innerHTML = `
+        <div class="analysis-loading">
+            <div class="mini-loader"></div>
+
+            <h3>Analyzing Screenshot...</h3>
+
+            <p>
+                Scanning visible text for suspicious indicators.
+            </p>
+        </div>
+    `;
+
+
+    try {
+
+        // OCR
+        const { data } =
+            await Tesseract.recognize(
+                imageURL,
+                "eng",
+                {
+                    logger: info => {
+
+                        if (info.status === "recognizing text") {
+
+                            const percent =
+                                Math.round(info.progress * 100);
+
+                            result.innerHTML = `
+                                <div class="analysis-loading">
+
+                                    <div class="mini-loader"></div>
+
+                                    <h3>
+                                        Analyzing Screenshot ${percent}%
+                                    </h3>
+
+                                    <p>
+                                        Detecting suspicious text...
+                                    </p>
+
+                                </div>
+                            `;
+                        }
+
+                    }
+                }
+            );
+
+
+        const text =
+            data.text.toLowerCase();
+
+
+        // Suspicious indicators
+        const suspiciousWords = [
+
+            "verify your account",
+            "verify account",
+            "login",
+            "sign in",
+            "password",
+            "confirm your account",
+            "urgent",
+            "account suspended",
+            "account locked",
+            "click here",
+            "security alert",
+            "update payment",
+            "payment failed",
+            "bank",
+            "otp",
+            "verification",
+            "free gift",
+            "claim now"
+
+        ];
+
+
+        let matches = [];
+
+
+        suspiciousWords.forEach(word => {
+
+            if (text.includes(word)) {
+
+                matches.push(word);
+
+            }
+
+        });
+
+
+        // Calculate risk
+        let riskScore =
+            matches.length * 10;
+
+
+        // Limit to 100
+        riskScore =
+            Math.min(riskScore, 100);
+
+
+        // Extra indicators
+        if (
+            text.includes("http://") ||
+            text.includes("https://")
+        ) {
+
+            riskScore += 5;
+
+        }
+
+
+        if (
+            text.includes("urgent") &&
+            text.includes("verify")
+        ) {
+
+            riskScore += 15;
+
+        }
+
+
+        riskScore =
+            Math.min(riskScore, 100);
+
+
+        // Status
+        let status;
+        let statusClass;
+        let recommendation;
+
+
+        if (riskScore >= 70) {
+
+            status =
+                "🚨 High Risk Screenshot";
+
+            statusClass =
+                "danger";
+
+            recommendation =
+                "Multiple suspicious indicators were detected. Avoid interacting with this website.";
+
+        }
+
+        else if (riskScore >= 40) {
+
+            status =
+                "⚠ Suspicious Screenshot";
+
+            statusClass =
+                "warning";
+
+            recommendation =
+                "Several suspicious indicators were detected. Proceed carefully.";
+
+        }
+
+        else {
+
+            status =
+                "✓ Low Risk Screenshot";
+
+            statusClass =
+                "safe";
+
+            recommendation =
+                "No major suspicious text indicators were detected.";
+
+        }
+
+
+        // Show result
         result.innerHTML = `
-            <h3>Screenshot Loaded ✓</h3>
-            <p>Image is ready for security analysis.</p>
+
+            <div class="screenshot-result">
+
+                <div class="result-title">
+
+                    <span class="${statusClass}">
+                        ${status}
+                    </span>
+
+                </div>
+
+
+                <div class="screenshot-risk">
+
+                    <strong>
+                        ${riskScore}
+                    </strong>
+
+                    <span>
+                        / 100
+                    </span>
+
+                </div>
+
+
+                <div class="risk-bar">
+
+                    <div
+                        class="risk-progress ${statusClass}"
+                        style="width:${riskScore}%"
+                    ></div>
+
+                </div>
+
+
+                <div class="detected-items">
+
+                    <h4>
+                        Detected Indicators
+                    </h4>
+
+                    ${
+                        matches.length
+                        ?
+                        matches.map(item => `
+                            <span>
+                                ⚠ ${item}
+                            </span>
+                        `).join("")
+                        :
+                        `
+                            <span class="no-threat">
+                                ✓ No major suspicious indicators
+                            </span>
+                        `
+                    }
+
+                </div>
+
+
+                <div class="recommendation-box">
+
+                    🛡️
+
+                    <div>
+
+                        <strong>
+                            Security Recommendation
+                        </strong>
+
+                        <p>
+                            ${recommendation}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         `;
 
-    };
 
-    reader.readAsDataURL(file);
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        result.innerHTML = `
+
+            <div class="analysis-error">
+
+                ❌ Screenshot analysis failed.
+
+                <p>
+                    Please try another image.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
 }
-
-
-
 /* =====================================================
    QR DETECTION
 ===================================================== */
