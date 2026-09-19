@@ -2,7 +2,7 @@
    PHISHGUARD — MAIN JAVASCRIPT
 ===================================================== */
 
-const API_URL = "https://phishguard-api.onrender.com/scan";
+const API_URL = "https://phishguard-1n9q.onrender.com/scan";
 
 document.addEventListener("DOMContentLoaded", () => {
 
