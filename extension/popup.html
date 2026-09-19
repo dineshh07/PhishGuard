@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>PhishGuard</title>
+
+    <link rel="stylesheet" href="popup.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="logo">
+                🛡️
+            </div>
+
+            <div>
+                <h1>PhishGuard</h1>
+                <span>Web Protection</span>
+            </div>
+
+        </div>
+
+
+        <div class="status">
+
+            <span class="dot"></span>
+
+            Protection Active
+
+        </div>
+
+
+        <div class="url-box">
+
+            <small>CURRENT WEBSITE</small>
+
+            <p id="currentUrl">
+                Checking...
+            </p>
+
+        </div>
+
+
+        <div class="scan-area">
+
+            <div class="score-circle" id="scoreCircle">
+
+                <div>
+
+                    <strong id="score">
+                        --
+                    </strong>
+
+                    <span>/100</span>
+
+                </div>
+
+            </div>
+
+
+            <h2 id="status">
+                Analyzing...
+            </h2>
+
+            <p id="message">
+                Checking this website for suspicious patterns.
+            </p>
+
+        </div>
+
+
+        <div class="checks">
+
+            <div class="check">
+                <span>✓</span>
+                URL Structure
+            </div>
+
+            <div class="check">
+                <span>✓</span>
+                Domain Analysis
+            </div>
+
+            <div class="check">
+                <span>✓</span>
+                Threat Detection
+            </div>
+
+        </div>
+
+
+        <button id="scanAgain">
+            🔄 Scan Again
+        </button>
+
+    </div>
+
+
+    <script src="popup.js"></script>
+
+</body>
+
+</html>
